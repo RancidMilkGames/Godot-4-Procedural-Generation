@@ -10,23 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Procedural Generation Sample"
-config/description="A playground for testing proc gen"
-run/main_scene="res://Scenes/level_1_tiled.tscn"
+config/name="Micro-0x72"
+run/main_scene="res://Scenes/level_1.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-boot_splash/image="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/knight_blue/knight_blue_attack_10.png"
-boot_splash/use_filter=false
-config/icon="res://icon.png"
+config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/13035/Documents/Godot/Out/Movies/ProcGen0x72/1/sample.png"
+movie_writer/movie_file="C:/Users/13035/Documents/Godot/Out/Movies/4/four.png"
 movie_writer/fps=12
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
@@ -52,5 +50,4 @@ ZoomOut={
 [rendering]
 
 renderer/rendering_method="mobile"
-driver/threads/thread_model=2
 textures/canvas_textures/default_texture_filter=0
