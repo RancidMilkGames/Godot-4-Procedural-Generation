@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Procedural Generation Sample"
+config/description="A playground for testing proc gen"
+run/main_scene="res://Scenes/level_1_tiled.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+boot_splash/image="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/knight_blue/knight_blue_attack_10.png"
+boot_splash/use_filter=false
+config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/13035/Documents/Godot/Out/Movies/ProcGen0x72/1/sample.png"
+movie_writer/fps=12
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[input]
+
+Click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(184, 21),"global_position":Vector2(188, 64),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+]
+}
+ZoomIn={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(196, 10),"global_position":Vector2(200, 53),"factor":1.0,"button_index":4,"pressed":true,"double_click":false,"script":null)
+]
+}
+ZoomOut={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(210, 6),"global_position":Vector2(214, 49),"factor":1.0,"button_index":5,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"
+driver/threads/thread_model=2
+textures/canvas_textures/default_texture_filter=0

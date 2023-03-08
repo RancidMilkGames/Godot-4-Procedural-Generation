@@ -1,0 +1,115 @@
+[gd_scene load_steps=25 format=3 uid="uid://sutwirskuxx7"]
+
+[ext_resource type="Texture2D" uid="uid://bkes82wijo274" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_01.png" id="1_vo7bx"]
+[ext_resource type="Texture2D" uid="uid://bcaq822r5cv11" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_02.png" id="2_npfyw"]
+[ext_resource type="Texture2D" uid="uid://bog3ti7euby6d" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_03.png" id="3_84igr"]
+[ext_resource type="Texture2D" uid="uid://cu7ndgipsj6yn" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_04.png" id="4_ipug0"]
+[ext_resource type="Texture2D" uid="uid://bc78rc28jff4p" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_05.png" id="5_6lfam"]
+[ext_resource type="Texture2D" uid="uid://bioh1n2o5gumj" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_idle_06.png" id="6_2iin5"]
+[ext_resource type="Texture2D" uid="uid://32ymk3h5ivx8" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_01.png" id="7_uexrd"]
+[ext_resource type="Texture2D" uid="uid://g8eafsnk5gdr" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_02.png" id="8_mt2oc"]
+[ext_resource type="Texture2D" uid="uid://bpuh2c5unjhvd" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_03.png" id="9_wvqia"]
+[ext_resource type="Texture2D" uid="uid://b0go21a1sde36" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_04.png" id="10_fy1ru"]
+[ext_resource type="Texture2D" uid="uid://dg4spmy0ylmk2" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_05.png" id="11_rqn6h"]
+[ext_resource type="Texture2D" uid="uid://dp3nokp01nwfw" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_06.png" id="12_5bjgx"]
+[ext_resource type="Texture2D" uid="uid://bthx7n5rkdx2p" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_attack_07.png" id="13_b64xv"]
+[ext_resource type="Texture2D" uid="uid://pb8e3iuxt1vp" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_run_01.png" id="14_xe3yq"]
+[ext_resource type="Texture2D" uid="uid://yacxpttiqhkl" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_run_02.png" id="15_thv0v"]
+[ext_resource type="Texture2D" uid="uid://dpxqj7xerqck1" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_run_03.png" id="16_jfrwi"]
+[ext_resource type="Texture2D" uid="uid://d2ae5h3ja7lft" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/wizard/wizard_run_04.png" id="17_typvl"]
+
+[sub_resource type="Animation" id="Animation_ipj8b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_vo7bx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csisd"]
+_data = {
+"RESET": SubResource("Animation_ipj8b")
+}
+
+[sub_resource type="Animation" id="Animation_te4f0"]
+resource_name = "Attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_uexrd"), ExtResource("8_mt2oc"), ExtResource("9_wvqia"), ExtResource("10_fy1ru"), ExtResource("11_rqn6h"), ExtResource("12_5bjgx"), ExtResource("13_b64xv")]
+}
+
+[sub_resource type="Animation" id="Animation_qikck"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_vo7bx"), ExtResource("2_npfyw"), ExtResource("3_84igr"), ExtResource("4_ipug0"), ExtResource("5_6lfam"), ExtResource("6_2iin5")]
+}
+
+[sub_resource type="Animation" id="Animation_doegw"]
+resource_name = "Run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_xe3yq"), ExtResource("15_thv0v"), ExtResource("16_jfrwi"), ExtResource("17_typvl")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1chy"]
+_data = {
+"Attack": SubResource("Animation_te4f0"),
+"Idle": SubResource("Animation_qikck"),
+"Run": SubResource("Animation_doegw")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6o12"]
+radius = 4.0
+height = 12.0
+
+[node name="Wizard" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vo7bx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_csisd"),
+"Wizard": SubResource("AnimationLibrary_u1chy")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_b6o12")

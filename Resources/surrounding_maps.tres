@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d074vk7sfmqf"]
+
+[ext_resource type="Script" path="res://Scripts/surrounding_maps.gd" id="1_y3mg6"]
+
+[resource]
+script = ExtResource("1_y3mg6")

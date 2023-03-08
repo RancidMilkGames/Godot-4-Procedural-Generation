@@ -1,0 +1,84 @@
+[gd_scene load_steps=15 format=3 uid="uid://dqc4v6ca35m6"]
+
+[ext_resource type="Texture2D" uid="uid://cifxru73suncj" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_attack_01.png" id="1_fpcvr"]
+[ext_resource type="Texture2D" uid="uid://bk4dxllphw4eh" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_attack_02.png" id="2_wtf67"]
+[ext_resource type="Texture2D" uid="uid://m1rexgxxrclc" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_attack_03.png" id="3_bf01g"]
+[ext_resource type="Texture2D" uid="uid://x5qnuy1xgkxp" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_attack_04.png" id="4_amkym"]
+[ext_resource type="Texture2D" uid="uid://cfjkgjujtd7k5" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_idle_01.png" id="5_ttw4e"]
+[ext_resource type="Texture2D" uid="uid://cgcsbrh6relmt" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_idle_02.png" id="6_3i7gl"]
+[ext_resource type="Texture2D" uid="uid://l524v4sj57g2" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_idle_03.png" id="7_td2lt"]
+[ext_resource type="Texture2D" uid="uid://dqhomghjulrg4" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_idle_04.png" id="8_y2hks"]
+[ext_resource type="Texture2D" uid="uid://cisgf5cmmapch" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_run_01.png" id="9_7uxnv"]
+[ext_resource type="Texture2D" uid="uid://dw33ji0csgj7b" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_run_02.png" id="10_3ayuv"]
+[ext_resource type="Texture2D" uid="uid://q2ug4kpgkppl" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_run_03.png" id="11_gk3ky"]
+[ext_resource type="Texture2D" uid="uid://bp3kxp31i1e1e" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/characters/rhino/rhino_run_04.png" id="12_m4y8j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ist3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fpcvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wtf67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bf01g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_amkym")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ttw4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3i7gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_td2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y2hks")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7uxnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3ayuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gk3ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m4y8j")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nox7b"]
+radius = 3.0
+height = 10.0
+
+[node name="rhino" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -3)
+sprite_frames = SubResource("SpriteFrames_ist3v")
+animation = &"Idle"
+frame_progress = 0.134626
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_nox7b")
