@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuq2fr8o2jm8w"]
+
+[ext_resource type="PackedScene" uid="uid://bxwcdrav48x3o" path="res://Scenes/grass_tile_map.tscn" id="1_76e7w"]
+[ext_resource type="PackedScene" uid="uid://b5gnmds407fwl" path="res://Scenes/player_camera.tscn" id="2_v2d4j"]
+
+[node name="GrassProc" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_76e7w")]
+
+[node name="PlayerCamera" parent="." instance=ExtResource("2_v2d4j")]

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_s6rtb"]
 [ext_resource type="PackedScene" uid="uid://b5gnmds407fwl" path="res://Scenes/player_camera.tscn" id="3_3kjbq"]
-[ext_resource type="PackedScene" uid="uid://dqs8lbwvqkkcj" path="res://Scenes/tiled_tile_map.tscn" id="5_1yxmh"]
+[ext_resource type="PackedScene" uid="uid://b8s5c1navsov3" path="res://Scenes/tiled_tile_map.tscn" id="5_1yxmh"]
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("tile_map_container") groups=["Level"]]
+[node name="TiledISO" type="Node2D" node_paths=PackedStringArray("tile_map_container") groups=["Level", "TiledISO"]]
 y_sort_enabled = true
 script = ExtResource("1_s6rtb")
 tiled_tmap_scene = ExtResource("5_1yxmh")
@@ -13,3 +13,5 @@ cam_scene = ExtResource("3_3kjbq")
 
 [node name="TileMaps" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

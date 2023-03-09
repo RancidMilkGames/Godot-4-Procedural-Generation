@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqs8lbwvqkkcj"]
+[gd_scene load_steps=7 format=3 uid="uid://b8s5c1navsov3"]
 
-[ext_resource type="Texture2D" uid="uid://dfyamg6xms7aw" path="res://Assets/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset.png" id="1_ufr7k"]
-[ext_resource type="Texture2D" uid="uid://bb8q8sc7d35xt" path="res://Assets/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset_no_bottom.png" id="2_o1p2u"]
-[ext_resource type="Script" path="res://Scripts/iso_tile_map.gd" id="3_e4yg8"]
+[ext_resource type="Texture2D" uid="uid://dfyamg6xms7aw" path="res://Assets/Sprites/MicroFantasy/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset.png" id="1_ufr7k"]
+[ext_resource type="Texture2D" uid="uid://bb8q8sc7d35xt" path="res://Assets/Sprites/MicroFantasy/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset_no_bottom.png" id="2_o1p2u"]
+[ext_resource type="Script" path="res://Scripts/iso_tile_map.gd" id="3_1p03x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61rhu"]
 texture = ExtResource("1_ufr7k")
@@ -212,7 +212,7 @@ layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 96
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
-script = ExtResource("3_e4yg8")
+script = ExtResource("3_1p03x")
 timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]

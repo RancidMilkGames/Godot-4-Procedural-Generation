@@ -1,0 +1,179 @@
+[gd_scene load_steps=14 format=3 uid="uid://dkx6nrh3q1dyf"]
+
+[ext_resource type="Script" path="res://Scripts/Global.gd" id="1_n3abo"]
+[ext_resource type="PackedScene" uid="uid://cuq2fr8o2jm8w" path="res://Scenes/grass_proc.tscn" id="2_weenw"]
+[ext_resource type="Script" path="res://Scripts/global_overlay.gd" id="3_13bby"]
+[ext_resource type="FontFile" uid="uid://baqbd844twb5y" path="res://Assets/Fonts/binxiao_blockletter/BinxiaoBlockletterPT1.ttf" id="3_ufs6o"]
+[ext_resource type="PackedScene" uid="uid://bfcgmc6w5twks" path="res://Scenes/level_1.tscn" id="4_ou6wu"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="4_shmjy"]
+[ext_resource type="PackedScene" uid="uid://s353dtxt8d3b" path="res://Scenes/level_1_tiled.tscn" id="5_cyu5l"]
+[ext_resource type="PackedScene" uid="uid://cgy4x1go1dqdn" path="res://Scenes/About.tscn" id="8_glxd1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q1yr"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.839216, 0.752941, 0.682353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.160784, 0.156863, 0.160784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmwyv"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.741176, 0.690196, 0.6, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.160784, 0.156863, 0.160784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2j50p"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.160784, 0.156863, 0.160784, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.741176, 0.690196, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[sub_resource type="Theme" id="Theme_v57et"]
+default_font = ExtResource("3_ufs6o")
+Button/colors/font_color = Color(0.160784, 0.156863, 0.160784, 1)
+Button/colors/font_hover_color = Color(0.160784, 0.156863, 0.160784, 1)
+Button/colors/font_pressed_color = Color(0.741176, 0.690196, 0.6, 1)
+Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_7q1yr")
+Button/styles/normal = SubResource("StyleBoxFlat_pmwyv")
+Button/styles/pressed = SubResource("StyleBoxFlat_2j50p")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vs674"]
+font = ExtResource("3_ufs6o")
+font_size = 200
+font_color = Color(0.768627, 0.643137, 0.301961, 1)
+
+[node name="Global" type="Node" node_paths=PackedStringArray("overlay")]
+script = ExtResource("1_n3abo")
+overlay = NodePath("Overlay")
+
+[node name="Overlay" type="CanvasLayer" parent="." node_paths=PackedStringArray("loading_screen", "menu")]
+script = ExtResource("3_13bby")
+loading_screen = NodePath("Loading")
+menu = NodePath("Menu")
+
+[node name="Menu" type="Control" parent="Overlay" node_paths=PackedStringArray("focus_button", "quit_button", "about")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_v57et")
+script = ExtResource("4_shmjy")
+simple_iso_scene = ExtResource("4_ou6wu")
+infinite_iso_scene = ExtResource("5_cyu5l")
+square_tile_scene = ExtResource("2_weenw")
+focus_button = NodePath("VBoxContainer/SimpleIso")
+quit_button = NodePath("VBoxContainer/Quit")
+about = NodePath("AboutPopup")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/Menu"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = -50.0
+grow_vertical = 0
+alignment = 1
+
+[node name="SimpleIso" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Simple ISO"
+
+[node name="TiledIso" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Endless ISO"
+
+[node name="SquareTiles" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Square Tiles"
+
+[node name="Quit" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="About" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.741176, 0.690196, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.839216, 0.752941, 0.682353, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "About"
+flat = true
+
+[node name="AboutPopup" parent="Overlay/Menu" instance=ExtResource("8_glxd1")]
+visible = false
+
+[node name="Loading" type="Control" parent="Overlay"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Overlay/Loading"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.403922, 0.482353, 0.501961, 1)
+
+[node name="Label" type="Label" parent="Overlay/Loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading"
+label_settings = SubResource("LabelSettings_vs674")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="visibility_changed" from="Overlay/Menu" to="Overlay/Menu" method="_on_visibility_changed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/SimpleIso" to="Overlay/Menu" method="_on_simple_iso_pressed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/TiledIso" to="Overlay/Menu" method="_on_tiled_iso_pressed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/SquareTiles" to="Overlay/Menu" method="_on_square_tiles_pressed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/Quit" to="Overlay/Menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/About" to="Overlay/Menu" method="_on_about_pressed"]

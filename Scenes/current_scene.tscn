@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clgmecbd4unpr"]
+
+[ext_resource type="PackedScene" uid="uid://cuq2fr8o2jm8w" path="res://Scenes/grass_proc.tscn" id="1_rlb8l"]
+
+[node name="Scene" type="Node"]
+
+[node name="GrassProc" parent="." instance=ExtResource("1_rlb8l")]

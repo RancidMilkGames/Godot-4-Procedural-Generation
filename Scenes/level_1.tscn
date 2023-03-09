@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://rno8nue56x3p"]
+[gd_scene load_steps=10 format=3 uid="uid://bfcgmc6w5twks"]
 
-[ext_resource type="Texture2D" uid="uid://chfu7vdyof7s1" path="res://Assets/microFantasy.v0.4/microFantasy.v0.4/tilesets/topdown.png" id="1_etc0q"]
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_f3hhj"]
-[ext_resource type="Texture2D" uid="uid://dfyamg6xms7aw" path="res://Assets/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset.png" id="2_527hs"]
-[ext_resource type="PackedScene" uid="uid://dqc4v6ca35m6" path="res://Scenes/rhino.tscn" id="3_ynejs"]
+[ext_resource type="Script" path="res://Scripts/simple_iso_level.gd" id="1_1y3s0"]
+[ext_resource type="Texture2D" uid="uid://chfu7vdyof7s1" path="res://Assets/Sprites/MicroFantasy/microFantasy.v0.4/microFantasy.v0.4/tilesets/topdown.png" id="1_etc0q"]
+[ext_resource type="Texture2D" uid="uid://dfyamg6xms7aw" path="res://Assets/Sprites/MicroFantasy/iso_tiled_example.v0.1/iso_tiled_example/iso_tileset.png" id="2_527hs"]
 [ext_resource type="Script" path="res://Scripts/iso_tile_map_single.gd" id="4_c5h3s"]
+[ext_resource type="PackedScene" uid="uid://b5gnmds407fwl" path="res://Scenes/player_camera.tscn" id="7_mmnfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra4sg"]
 texture = ExtResource("1_etc0q")
@@ -475,10 +475,15 @@ tile_shape = 1
 tile_size = Vector2i(16, 8)
 sources/0 = SubResource("TileSetAtlasSource_61rhu")
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_f3hhj")
+[node name="SimpleISO" type="Node2D" node_paths=PackedStringArray("tile_map_container") groups=["Level", "SimpleISO"]]
+script = ExtResource("1_1y3s0")
+tile_map_container = NodePath("TileMaps")
+cam_scene = ExtResource("7_mmnfn")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="TileMapSquare" type="TileMap" parent="TileMaps"]
+visible = false
 tile_set = SubResource("TileSet_d5udn")
 cell_quadrant_size = 8
 format = 2
@@ -492,37 +497,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(196612, 327680, 2, 131076, 131072, 0, 65540, 131072, 1, 4, 327680, 1, 196611, 327680, 2, 131075, 393216, 2, 65539, 393216, 2, 3, 262144, 0, 196610, 327680, 2, 131074, 393216, 2, 65538, 393216, 2, 2, 262144, 0, 196609, 327680, 2, 131073, 393216, 2, 65537, 393216, 2, 1, 327680, 0, 196608, 262144, 2, 131072, 196608, 1, 65536, 196608, 1, 0, 262144, 1)
 
-[node name="TileMap2" type="TileMap" parent="."]
-visible = false
-y_sort_enabled = true
-tile_set = SubResource("TileSet_xj17r")
-format = 2
-layer_0/name = "Base"
-layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(196612, 0, 1, 196613, 0, 1, 131077, 0, 1, 131078, 0, 1, 196614, 0, 1, 131079, 0, 1, 196615, 0, 1, 262151, 0, 1, 262150, 0, 1, 262149, 0, 1, 262148, 0, 1, 262152, 0, 1, 196616, 0, 1, 196617, 0, 1, 131081, 0, 1, 131080, 0, 1, 65543, 0, 1, 65542, 0, 1, 65544, 0, 1, 65545, 0, 1, 65547, 0, 1, 65548, 0, 1, 131083, 0, 1, 131082, 0, 1, 12, 0, 1, 11, 0, 1, 10, 0, 1, 9, 0, 1, 8, 0, 1, 7, 0, 1, -65523, 0, 1, -65522, 0, 1, 13, 0, 1, -131057, 0, 1, -131058, 0, 1, -131059, 0, 1, -131060, 0, 1, -65525, 0, 1, -65526, 0, 1, -65524, 0, 1, -65527, 0, 1, -65528, 0, 1, -65529, 0, 1, -65530, 0, 1, -131063, 0, 1, -131062, 0, 1, -131061, 0, 1, -196596, 0, 1, -196597, 0, 1, -196598, 0, 1, -196599, 0, 1, -196600, 0, 1, -131064, 0, 1, 196620, 0, 1, 196619, 0, 1, 196618, 0, 1, 262154, 0, 1, 262153, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 196621, 0, 1, 131085, 0, 1, 65549, 0, 1, 196622, 0, 1, 262158, 0, 1, 6, 65536, 1, 131086, 65536, 1, 65550, 196608, 3, 14, 196608, 3, 65551, 0, 3, 131087, 0, 3, 196623, 0, 3, 262159, 0, 3, 262160, 0, 3, 196624, 0, 3, 65552, 0, 3, 131088, 0, 3, 16, 0, 5, 15, 0, 5, -65520, 0, 5, -65521, 0, 5, -131056, 0, 5, 65553, 0, 3, -65519, 0, 3, 17, 0, 3, -196591, 0, 3, -131055, 0, 3, -196592, 0, 3, -196593, 0, 3, -196594, 0, 3, -196595, 0, 3, 131084, 0, 1, 131089, 0, 3, 65554, 0, 3, 19, 0, 3, 18, 0, 3, -65517, 0, 3, -65518, 0, 3, -131053, 0, 3, -131054, 0, 3, -196589, 0, 3, -196590, 0, 3, -262125, 0, 3, -262126, 0, 3, -262124, 0, 3, -196588, 0, 3, -196587, 0, 3, -131052, 0, 3, -131051, 0, 3, -65516, 0, 3, -196586, 0, 3, -262122, 0, 3, -262123, 0, 3, -262127, 0, 3, -262128, 0, 3, -262129, 0, 3, -262130, 0, 3, -327665, 0, 3, -327664, 0, 3, -327663, 0, 3, -327662, 0, 3, -327661, 0, 3, -327660, 0, 3, -327659, 0, 3, -327658, 0, 3, -327657, 0, 3, -262121, 0, 3, 65546, 0, 1)
-layer_1/name = "Deco"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = true
-layer_1/y_sort_origin = 32
-layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(196624, 131072, 3)
-layer_2/name = "Test"
-layer_2/enabled = true
-layer_2/modulate = Color(1, 1, 1, 1)
-layer_2/y_sort_enabled = true
-layer_2/y_sort_origin = 64
-layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array()
-layer_3/name = "test2"
-layer_3/enabled = true
-layer_3/modulate = Color(1, 1, 1, 1)
-layer_3/y_sort_enabled = true
-layer_3/y_sort_origin = 96
-layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array()
-
-[node name="TileMap3" type="TileMap" parent="."]
+[node name="TileMapIsoSimple" type="TileMap" parent="TileMaps"]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_xj17r")
 format = 2
@@ -551,14 +526,8 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("4_c5h3s")
 
-[node name="Timer" type="Timer" parent="TileMap3"]
+[node name="Timer" type="Timer" parent="TileMaps/TileMapIsoSimple"]
 wait_time = 0.3
 autostart = true
 
-[node name="rhino" parent="." instance=ExtResource("3_ynejs")]
-position = Vector2(72, -38)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-
-[connection signal="timeout" from="TileMap3/Timer" to="TileMap3" method="_on_timer_timeout"]
+[connection signal="timeout" from="TileMaps/TileMapIsoSimple/Timer" to="TileMaps/TileMapIsoSimple" method="_on_timer_timeout"]

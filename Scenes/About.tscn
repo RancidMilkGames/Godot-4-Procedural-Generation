@@ -1,0 +1,185 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgy4x1go1dqdn"]
+
+[ext_resource type="Script" path="res://Scripts/about.gd" id="1_mje1c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f72d"]
+bg_color = Color(0.403922, 0.482353, 0.501961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fytaw"]
+
+[sub_resource type="Theme" id="Theme_r11oo"]
+Panel/styles/panel = SubResource("StyleBoxFlat_1f72d")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_1f72d")
+RichTextLabel/colors/default_color = Color(0.741176, 0.690196, 0.6, 1)
+RichTextLabel/colors/font_outline_color = Color(0.160784, 0.156863, 0.160784, 1)
+RichTextLabel/constants/outline_size = 2
+RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_fytaw")
+
+[sub_resource type="LabelSettings" id="LabelSettings_orriq"]
+font_size = 72
+font_color = Color(0.839216, 0.752941, 0.682353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1v00t"]
+bg_color = Color(0.741176, 0.317647, 0.427451, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6eyh"]
+bg_color = Color(0.898039, 0.521569, 0.54902, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vowbj"]
+bg_color = Color(0.501961, 0.262745, 0.419608, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="AboutPopup" type="PopupPanel"]
+initial_position = 1
+size = Vector2i(1058, 558)
+visible = true
+theme = SubResource("Theme_r11oo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1f72d")
+script = ExtResource("1_mje1c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1058.0
+offset_bottom = 558.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="About" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/About"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/About/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/About/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/About/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "About"
+label_settings = SubResource("LabelSettings_orriq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="MarginContainer/About/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.984314, 0.870588, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.984314, 0.870588, 1)
+theme_override_colors/font_hover_color = Color(1, 0.984314, 0.870588, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_1v00t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a6eyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vowbj")
+text = "X"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/About/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/About/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/About/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/About/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="MarginContainer/About/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/About/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Intro" type="RichTextLabel" parent="MarginContainer/About/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "[b]RancidMilk 2023[/b]
+
+[bgcolor=#292829][color=#a65a66][b]Please note the following licenses don't necessarily reflect the project's license and are all seperate(but compatible).[/b]
+[/color][/bgcolor]
+"
+fit_content = true
+selection_enabled = true
+
+[node name="Credits" type="RichTextLabel" parent="MarginContainer/About/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "[b]Made with the Godot Engine:[/b]
+
+    This game uses Godot Engine, available under the following license:
+
+    Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[b]Free Font[/b]
+
+    Portions of this software are copyright © 2023 The FreeType Project (www.freetype.org). All rights reserved.
+
+[b]ENET[/b]
+
+    Copyright (c) 2002-2020 Lee Salzman
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[b]mbed TLS[/b]
+
+    Copyright The Mbed TLS Contributors
+
+    Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+"
+fit_content = true
+selection_enabled = true
+
+[connection signal="pressed" from="MarginContainer/About/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]

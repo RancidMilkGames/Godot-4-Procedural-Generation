@@ -1,0 +1,1 @@
+Original README.md has been modified to exclude non ASCII characters

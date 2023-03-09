@@ -26,9 +26,15 @@ func _ready():
 	first_tmap.row = 0
 	first_tmap.column = 0
 	tilemaps.append(first_tmap)
-	first_tmap.cam_centered()
 	first_tmap.start()
+	first_tmap.cam_centered()
 	
 	cam = cam_scene.instantiate()
 	add_child(cam)
+	
+	Global.overlay.loading_screen.visible = false
 
+
+
+func _on_tree_exiting():
+	cam.queue_free()

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxwcdrav48x3o"]
+
+[ext_resource type="TileSet" uid="uid://1kyphkoxj5r8" path="res://Resources/overworld_tile_set.tres" id="1_x82oo"]
+[ext_resource type="Script" path="res://Scripts/proc_gen_map.gd" id="2_kvm65"]
+
+[node name="TileMap" type="TileMap"]
+tile_set = ExtResource("1_x82oo")
+format = 2
+layer_0/name = "Water"
+layer_1/name = "Land"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "decor"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array()
+script = ExtResource("2_kvm65")
+edge_cells = Array[Vector2i]([Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(2, 5), Vector2i(2, 6), Vector2i(1, 6), Vector2i(0, 6), Vector2i(0, 5)])

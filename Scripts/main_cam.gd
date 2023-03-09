@@ -1,6 +1,6 @@
 class_name Player extends Camera2D
 
-@onready var level: Level = get_tree().get_first_node_in_group("Level")
+var level: Level
 var holding = false
 var cam_pos
 var zoom_bounds: Vector2 = Vector2(.2, 4)
@@ -18,11 +18,14 @@ var dir: Vector2
 var speed = 500
 
 func _ready():
-	centered_tile = level.tile_map_container.get_node("TiledTileMap") #get_child(0)
+	var lvl = get_tree().get_first_node_in_group("Level")
+	if lvl is Level:
+		level = lvl
+	if level:
+		centered_tile = level.tile_map_container.get_node("TiledTileMap")
+	else:
+		get_node("Timer").stop()
 	dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
-	#set_process(false)
-#	Global.scene_loader.scene_change_start.connect(on_scene_change_request)
-#	Global.scene_loader.scene_change_end.connect(on_new_scene_connected)
 
 
 func on_scene_change_request():
@@ -38,16 +41,16 @@ func on_new_scene_connected(scene: String):
 
 func _process(delta):
 	zoom = lerp(zoom, current_zoom, (delta * zoom_speed) / Engine.time_scale)
-	global_position += dir.normalized() * speed * delta
-	if randi_range(0, 100) == 0:
-		dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+
+#	global_position += dir.normalized() * speed * delta
+#	if randi_range(0, 100) == 0:
+#		dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	
 
 
 func _input(event):
 	if not use_input:
 		return
-	
 	
 	if event.is_action_pressed("ZoomIn"):
 		if current_zoom.x < zoom_bounds.y:
@@ -92,7 +95,7 @@ func zoom_count(from_self: bool = false):
 
 
 func check_center_tile():
-	var cam_position = get_target_position() # get_screen_center_position()
+	var cam_position = get_target_position()
 	if not centered_tile.my_rect.has_point(cam_position):
 		var found = false
 		for t_map in centered_tile.surrounding_maps:

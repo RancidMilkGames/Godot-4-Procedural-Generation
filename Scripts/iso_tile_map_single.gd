@@ -3,18 +3,15 @@ extends TileMap
 var noise_text: NoiseTexture2D = NoiseTexture2D.new()
 var water_noise_text: NoiseTexture2D = NoiseTexture2D.new()
 
-var width = 170 / 2
-var height = 170
+var width = 170
+var height = 170 * 2
 
 var water_tiles = []
 var offset = 0
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-#	noise_text.seamless = true
-#	noise_text.noise = FastNoiseLite.new()
-#	noise_text.noise.seed = randi_range(0, 1000000)
-#	await noise_text.changed
-	noise_text = get_parent().noise_text
+	noise_text = get_tree().get_first_node_in_group("SimpleISO").noise_text
 	await get_tree().create_timer(1).timeout
 	
 	for w in width:
@@ -39,19 +36,15 @@ func _ready():
 	water_noise_text.noise = FastNoiseLite.new()
 	water_noise_text.noise.seed = randi_range(0, 1000000)
 	water_noise_text.in_3d_space = true
+	Global.overlay.loading_screen.visible = false
 	
 
 func _on_timer_timeout():
 	for wt in water_tiles:
 		#await get_tree().physics_frame
 		if water_noise_text.noise.get_noise_3d(wt.x, wt.y, offset) > .11:
-			
-#		if randi_range(0, 1) == 0:
-			set_cell(0, wt, 0, Vector2i(0, 5)) #  + Vector2i(offset, offset)
+			set_cell(0, wt, 0, Vector2i(0, 5))
 		else:
-			set_cell(0, wt, 0, Vector2i(3, 5)) #  + Vector2i(offset, offset)
-			
+			set_cell(0, wt, 0, Vector2i(3, 5))
+
 	offset += 1
-#	water_noise_text.noise.offset.z += 1
-#	water_noise_text.noise.offset.x += 1
-#	water_noise_text.noise.offset.y += 1
