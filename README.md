@@ -6,6 +6,11 @@ This project is an experiment in procedural generation in Godot 4. There are a f
 * 2D square tiles
 * 3D terrain using the surface array tool
 
+## Assets Used
+* Micro Fantasy by 0x72 https://0x72.itch.io/microfantasy CC0
+* Overworld - Grass Biome by Beast Pixels https://beast-pixels.itch.io/overworld-tileset-grass-biome CC0
+* Several 3D Models by Quaternius https://quaternius.itch.io/ CC0
+
 https://user-images.githubusercontent.com/115530728/223854281-161d993e-36bb-46c5-9671-a584c0fb15ba.mp4
 
 https://user-images.githubusercontent.com/115530728/224507911-8a41acb4-5277-4b43-befa-38f4cc0cbb02.mp4
