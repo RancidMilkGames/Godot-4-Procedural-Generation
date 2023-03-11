@@ -8,3 +8,6 @@ This project is an experiment in procedural generation in Godot 4. There are a f
 
 https://user-images.githubusercontent.com/115530728/223854281-161d993e-36bb-46c5-9671-a584c0fb15ba.mp4
 
+https://user-images.githubusercontent.com/115530728/224507911-8a41acb4-5277-4b43-befa-38f4cc0cbb02.mp4
+
+![sample00000010](https://user-images.githubusercontent.com/115530728/224508000-df0a2e08-c7c6-4a26-9625-dd17d7c539fd.png)
