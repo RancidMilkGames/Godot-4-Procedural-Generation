@@ -1,4 +1,4 @@
-class_name Player extends Camera2D
+extends Camera2D
 
 var level: Level
 var holding = false

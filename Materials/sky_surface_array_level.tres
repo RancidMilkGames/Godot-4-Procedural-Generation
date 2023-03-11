@@ -1,0 +1,52 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://enat8va2fdtq"]
+
+[ext_resource type="Shader" path="res://Shaders/sky.gdshader" id="1_kf134"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f73a7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rx3o"]
+seamless = true
+noise = SubResource("FastNoiseLite_f73a7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6ep8g"]
+seamless = true
+noise = SubResource("FastNoiseLite_f73a7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_msn6j"]
+seamless = true
+noise = SubResource("FastNoiseLite_f73a7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7gasx"]
+seamless = true
+noise = SubResource("FastNoiseLite_f73a7")
+
+[resource]
+shader = ExtResource("1_kf134")
+shader_parameter/day_bottom_color = Color(0.87451, 0.741176, 0.533333, 1)
+shader_parameter/day_top_color = Color(0.443137, 0.807843, 0.929412, 1)
+shader_parameter/sunset_bottom_color = Color(0.843137, 0.619608, 0.870588, 1)
+shader_parameter/sunset_top_color = Color(0.466667, 0.8, 0.952941, 1)
+shader_parameter/night_bottom_color = Color(0, 0, 0, 1)
+shader_parameter/night_top_color = Color(0, 0, 0, 1)
+shader_parameter/horizon_color_day = Color(0.87451, 0.741176, 0.533333, 1)
+shader_parameter/horizon_color_sunset = Color(0.843137, 0.619608, 0.870588, 1)
+shader_parameter/horizon_color_night = Color(0, 0.8, 1, 1)
+shader_parameter/horizon_falloff = 1.0
+shader_parameter/sun_col = Color(0.858824, 0.858824, 0, 1)
+shader_parameter/sun_size = 0.075
+shader_parameter/sun_blur = 0.322
+shader_parameter/moon_col = Color(1, 1, 1, 1)
+shader_parameter/moon_size = 0.151
+shader_parameter/moon_crescent_offset = 0.5
+shader_parameter/clouds_main_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_edge_color = Color(0.627451, 0.627451, 0.627451, 1)
+shader_parameter/clouds_speed = 0.01
+shader_parameter/clouds_scale = 0.1
+shader_parameter/clouds_cutoff = 0.0
+shader_parameter/clouds_fuzziness = 1.0
+shader_parameter/stars_cutoff = 1.0
+shader_parameter/stars_speed = 0.059
+shader_parameter/clouds_texture = SubResource("NoiseTexture2D_msn6j")
+shader_parameter/clouds_distort_texture = SubResource("NoiseTexture2D_3rx3o")
+shader_parameter/clouds_noise_texture = SubResource("NoiseTexture2D_6ep8g")
+shader_parameter/stars_texture = SubResource("NoiseTexture2D_7gasx")

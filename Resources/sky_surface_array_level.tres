@@ -1,0 +1,6 @@
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://bypsy6x1acp0u"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_f3gli"]
+
+[resource]
+sky_material = SubResource("PhysicalSkyMaterial_f3gli")

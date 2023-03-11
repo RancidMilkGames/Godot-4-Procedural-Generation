@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx0ftkncfgq1q"]
+
+[ext_resource type="Script" path="res://Scripts/surface_array_level.gd" id="1_o7un0"]
+[ext_resource type="PackedScene" uid="uid://dbuolgg4bswdc" path="res://Scenes/proc_gen_square.tscn" id="2_okga2"]
+[ext_resource type="PackedScene" uid="uid://dtm6byery5dnj" path="res://Scenes/player.tscn" id="3_txnuj"]
+[ext_resource type="PackedScene" uid="uid://upceelae0fxw" path="res://Scenes/tree_cluster.tscn" id="4_jqcfh"]
+[ext_resource type="Sky" uid="uid://ci3eavr7d3em6" path="res://Resources/sky_surface_array_level2.tres" id="4_y5njr"]
+
+[sub_resource type="Environment" id="Environment_o282a"]
+background_mode = 2
+sky = ExtResource("4_y5njr")
+ambient_light_source = 3
+ambient_light_color = Color(0.4, 0.435294, 0.52549, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+glow_bloom = 0.13
+
+[node name="SurfaceArrayLevel" type="Node3D" node_paths=PackedStringArray("foliage_container") groups=["SAL"]]
+script = ExtResource("1_o7un0")
+max_height = 250
+proc_gen_sqr_scene = ExtResource("2_okga2")
+player_scene = ExtResource("3_txnuj")
+tree_cluster_scene = ExtResource("4_jqcfh")
+foliage_container = NodePath("Containers/Foliage")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o282a")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_angular_distance = 5.7
+light_bake_mode = 1
+directional_shadow_mode = 0
+
+[node name="Containers" type="Node3D" parent="." groups=["Containers"]]
+
+[node name="FX" type="Node3D" parent="Containers"]
+
+[node name="Foliage" type="Node3D" parent="Containers"]

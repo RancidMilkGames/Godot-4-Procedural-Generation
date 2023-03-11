@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp3kpysqhhbgx"]
+
+[ext_resource type="ArrayMesh" uid="uid://7i23mbfxhs32" path="res://Assets/Meshes/BushBerries_1.res" id="1_x208n"]
+[ext_resource type="PackedScene" uid="uid://bvgqpc6e4bbmh" path="res://Scenes/snap_to_floor.tscn" id="2_qihan"]
+[ext_resource type="Script" path="res://Scripts/snap_to_floor.gd" id="3_rcxbo"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7wsc5"]
+points = PackedVector3Array(0.00074083, -0.00011853, 0.00214087, 0.000678961, -8.1607e-05, 0.00210671, 0.000708577, -0.00010807, 0.00216386, 0.000667176, -0.000139029, 0.00210987, -1.38539e-05, -5.32557e-05, 9.49001e-06, -2.88949e-05, 3.53686e-06, 9.49001e-06, 0.000407448, 2.28373e-05, 0.00190342, 0.000642521, -6.98889e-05, 0.00212716, -0.000814746, -0.00011853, 0.00205525, 0.000629806, -0.000127011, 0.00212948, -0.000741092, -0.000139029, 0.00202404, 0.000362945, -0.000194503, 0.00191502, 0.000177802, -0.000225701, 0.00171447, -0.000251718, -0.000225701, 0.00162885, -0.000296841, -0.000213923, 0.00161641, -6.34735e-05, -4.02788e-05, 9.49001e-06, -7.85145e-05, 1.65137e-05, 9.49001e-06, 0.000204473, 6.49447e-05, 0.00172543, 0.000365581, 3.62338e-05, 0.00191944, -0.000752877, -8.1607e-05, 0.00202109, -0.000787455, -7.2676e-05, 0.00199958, -0.000843278, -0.000111247, 0.00203079, -0.00077319, -0.000130817, 0.00200127, -0.000437017, -0.000194503, 0.0018294, -0.00037096, 6.21575e-05, 0.00161767, -0.000194811, 7.77718e-05, 0.00124441, 2.35159e-05, 8.0469e-05, 0.00134247, -0.000523076, 3.37163e-05, 0.00180135)
+
+[node name="BushBerries_1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -44.8074, 89.3997, 0, -89.3997, -44.8074, 0, 0, 0)
+mesh = ExtResource("1_x208n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7wsc5")
+
+[node name="SnapToFloor" type="RayCast3D" parent="." instance=ExtResource("2_qihan")]
+target_position = Vector3(0, -200, 0)
+script = ExtResource("3_rcxbo")

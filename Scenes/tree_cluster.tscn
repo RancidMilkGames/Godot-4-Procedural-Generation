@@ -1,0 +1,32 @@
+[gd_scene load_steps=12 format=3 uid="uid://upceelae0fxw"]
+
+[ext_resource type="Script" path="res://Scripts/tree_cluster.gd" id="1_wcv6o"]
+[ext_resource type="PackedScene" uid="uid://brhv7o8b0ikjt" path="res://Scenes/Environment/Trees/BirchTree_1.tscn" id="6_m0mdv"]
+[ext_resource type="PackedScene" uid="uid://idxoq5bl54w8" path="res://Scenes/Environment/Trees/BirchTree_2.tscn" id="7_8jb2y"]
+[ext_resource type="PackedScene" uid="uid://buu3kdgv4xjy6" path="res://Scenes/Environment/Trees/BirchTree_3.tscn" id="8_ckgm4"]
+[ext_resource type="PackedScene" uid="uid://bvyvrkwvl8dts" path="res://Scenes/Environment/Trees/BirchTree_4.tscn" id="9_4ay5i"]
+[ext_resource type="PackedScene" uid="uid://dmhmyopp0jpky" path="res://Scenes/Environment/Trees/BirchTree_5.tscn" id="10_cnxy4"]
+[ext_resource type="PackedScene" uid="uid://nnyr31qr7mx3" path="res://Scenes/Environment/Trees/BirchTree_Dead_1.tscn" id="11_4r20p"]
+[ext_resource type="PackedScene" uid="uid://c2nqas2v2kwkt" path="res://Scenes/Environment/Trees/BirchTree_Dead_2.tscn" id="12_etdcp"]
+[ext_resource type="PackedScene" uid="uid://b47gqeu47jec" path="res://Scenes/Environment/Trees/BirchTree_Dead_3.tscn" id="13_oekco"]
+[ext_resource type="PackedScene" uid="uid://d3f5pn101rhhf" path="res://Scenes/Environment/Trees/BirchTree_Dead_4.tscn" id="14_05a44"]
+[ext_resource type="PackedScene" uid="uid://b7duieh5kwyn3" path="res://Scenes/Environment/Trees/BirchTree_Dead_5.tscn" id="15_bucue"]
+
+[node name="TreeCluster" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+script = ExtResource("1_wcv6o")
+tree_scenes = Array[PackedScene]([ExtResource("6_m0mdv"), ExtResource("7_8jb2y"), ExtResource("8_ckgm4"), ExtResource("9_4ay5i"), ExtResource("10_cnxy4"), ExtResource("11_4r20p"), ExtResource("12_etdcp"), ExtResource("13_oekco"), ExtResource("14_05a44"), ExtResource("15_bucue")])
+
+[node name="Tree" type="Node3D" parent="."]
+
+[node name="Tree2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Tree3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Tree4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="Tree5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)

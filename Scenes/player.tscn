@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtm6byery5dnj"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_kq673"]
+[ext_resource type="PackedScene" uid="uid://sk8pjog0qvhu" path="res://Scenes/Player/pistol.tscn" id="2_25lfo"]
+[ext_resource type="Script" path="res://Scripts/Player/ui.gd" id="3_iodw5"]
+[ext_resource type="Texture2D" uid="uid://d36mprmqse14o" path="res://Assets/Sprites/Crosshairs/crosshair184.png" id="3_t1qfo"]
+[ext_resource type="FontFile" uid="uid://baqbd844twb5y" path="res://Assets/Fonts/binxiao_blockletter/BinxiaoBlockletterPT1.ttf" id="4_6xcvy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n2dmj"]
+
+[sub_resource type="Theme" id="Theme_bnw7x"]
+RichTextLabel/colors/default_color = Color(0.839216, 0.752941, 0.682353, 1)
+RichTextLabel/colors/font_outline_color = Color(0.160784, 0.156863, 0.160784, 1)
+RichTextLabel/constants/outline_size = 4
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("4_6xcvy")
+
+[sub_resource type="LabelSettings" id="LabelSettings_36x8t"]
+font = ExtResource("4_6xcvy")
+font_size = 72
+font_color = Color(0.768627, 0.643137, 0.301961, 1)
+outline_size = 10
+outline_color = Color(0.160784, 0.156863, 0.160784, 1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("gun", "cam", "UI", "muzzle_marker") groups=["Player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+wall_min_slide_angle = 0.436332
+script = ExtResource("1_kq673")
+gun = NodePath("Camera3D/Pistol")
+cam = NodePath("Camera3D")
+UI = NodePath("UI")
+muzzle_marker = NodePath("Camera3D/Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_n2dmj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.584193)
+current = true
+
+[node name="Pistol" parent="Camera3D" instance=ExtResource("2_25lfo")]
+transform = Transform3D(-2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 0.410581, -0.359476, -0.884366)
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.754)
+
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("controls")]
+script = ExtResource("3_iodw5")
+controls = NodePath("ControlHelp")
+
+[node name="CrossHair" type="TextureRect" parent="UI"]
+self_modulate = Color(0.839216, 0.752941, 0.682353, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t1qfo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ControlHelp" type="VBoxContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 312.0
+grow_horizontal = 2
+theme = SubResource("Theme_bnw7x")
+
+[node name="Message" type="Label" parent="UI/ControlHelp"]
+layout_mode = 2
+text = "Press H to display controls again"
+label_settings = SubResource("LabelSettings_36x8t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="RichTextLabel" parent="UI/ControlHelp"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+-> W/A/S/D - Move
+-> Shift - Boost(Double click to launch)
+-> Left Click - Fire"
+fit_content = true

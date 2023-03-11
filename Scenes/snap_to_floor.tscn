@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvgqpc6e4bbmh"]
+
+[ext_resource type="Script" path="res://Scripts/snap_to_floor.gd" id="1_cgrqo"]
+
+[node name="SnapToFloor" type="RayCast3D"]
+target_position = Vector3(0, -200, 0)
+script = ExtResource("1_cgrqo")

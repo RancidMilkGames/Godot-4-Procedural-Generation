@@ -1,0 +1,20 @@
+[gd_resource type="Sky" load_steps=5 format=3 uid="uid://ci3eavr7d3em6"]
+
+[sub_resource type="Gradient" id="Gradient_fg3eo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dx78e"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v5uk7"]
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_fg3eo")
+noise = SubResource("FastNoiseLite_dx78e")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_55svk"]
+sky_horizon_color = Color(0.745098, 0.560784, 0.337255, 1)
+sky_curve = 0.0699775
+sky_cover = SubResource("NoiseTexture2D_v5uk7")
+sky_cover_modulate = Color(0.839216, 0.752941, 0.682353, 1)
+
+[resource]
+sky_material = SubResource("ProceduralSkyMaterial_55svk")

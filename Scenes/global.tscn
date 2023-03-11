@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkx6nrh3q1dyf"]
+[gd_scene load_steps=15 format=3 uid="uid://dkx6nrh3q1dyf"]
 
 [ext_resource type="Script" path="res://Scripts/Global.gd" id="1_n3abo"]
 [ext_resource type="PackedScene" uid="uid://cuq2fr8o2jm8w" path="res://Scenes/grass_proc.tscn" id="2_weenw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfcgmc6w5twks" path="res://Scenes/level_1.tscn" id="4_ou6wu"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="4_shmjy"]
 [ext_resource type="PackedScene" uid="uid://s353dtxt8d3b" path="res://Scenes/level_1_tiled.tscn" id="5_cyu5l"]
+[ext_resource type="PackedScene" uid="uid://cx0ftkncfgq1q" path="res://Scenes/surface_array_level.tscn" id="8_6ywdi"]
 [ext_resource type="PackedScene" uid="uid://cgy4x1go1dqdn" path="res://Scenes/About.tscn" id="8_glxd1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q1yr"]
@@ -90,7 +91,8 @@ script = ExtResource("4_shmjy")
 simple_iso_scene = ExtResource("4_ou6wu")
 infinite_iso_scene = ExtResource("5_cyu5l")
 square_tile_scene = ExtResource("2_weenw")
-focus_button = NodePath("VBoxContainer/SimpleIso")
+terrain_3d = ExtResource("8_6ywdi")
+focus_button = NodePath("VBoxContainer/3D Terrain")
 quit_button = NodePath("VBoxContainer/Quit")
 about = NodePath("AboutPopup")
 
@@ -105,6 +107,10 @@ offset_right = 90.0
 offset_bottom = -50.0
 grow_vertical = 0
 alignment = 1
+
+[node name="3D Terrain" type="Button" parent="Overlay/Menu/VBoxContainer"]
+layout_mode = 2
+text = "3D Terrain"
 
 [node name="SimpleIso" type="Button" parent="Overlay/Menu/VBoxContainer"]
 layout_mode = 2
@@ -154,6 +160,7 @@ grow_vertical = 2
 color = Color(0.403922, 0.482353, 0.501961, 1)
 
 [node name="Label" type="Label" parent="Overlay/Loading"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,6 +179,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="visibility_changed" from="Overlay/Menu" to="Overlay/Menu" method="_on_visibility_changed"]
+[connection signal="pressed" from="Overlay/Menu/VBoxContainer/3D Terrain" to="Overlay/Menu" method="_on_3d_terrain_pressed"]
 [connection signal="pressed" from="Overlay/Menu/VBoxContainer/SimpleIso" to="Overlay/Menu" method="_on_simple_iso_pressed"]
 [connection signal="pressed" from="Overlay/Menu/VBoxContainer/TiledIso" to="Overlay/Menu" method="_on_tiled_iso_pressed"]
 [connection signal="pressed" from="Overlay/Menu/VBoxContainer/SquareTiles" to="Overlay/Menu" method="_on_square_tiles_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://pkv6mjkqlpol"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Weapons/bullet.gd" id="1_iamo0"]
+[ext_resource type="PackedScene" uid="uid://bh6mp16fjnbmw" path="res://Scenes/Player/bullet_hit_fx.tscn" id="2_sh6lf"]
+[ext_resource type="PackedScene" uid="uid://du0pf2isnvwks" path="res://Scenes/self_destruct.tscn" id="3_eluum"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dbm25"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1dn0"]
+shading_mode = 2
+albedo_color = Color(0.92549, 0.894118, 0.694118, 1)
+emission_enabled = true
+emission = Color(0.92549, 0.894118, 0.694118, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lig2y"]
+material = SubResource("StandardMaterial3D_d1dn0")
+radius = 2.0
+height = 4.0
+
+[node name="Bullet" type="CharacterBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 8
+motion_mode = 1
+script = ExtResource("1_iamo0")
+hit_fx_scene = ExtResource("2_sh6lf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dbm25")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_lig2y")
+
+[node name="SelfDestruct" parent="." instance=ExtResource("3_eluum")]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbuolgg4bswdc"]
+
+[ext_resource type="Script" path="res://Scripts/proc_gen_square.gd" id="1_xoqgn"]
+[ext_resource type="Material" uid="uid://e11kj7bf1630" path="res://Materials/Ground.tres" id="2_clksn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dctvu"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_36306"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f85ce"]
+
+[node name="ProcGenSquare" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh_inst", "nav_mesh_region")]
+collision_layer = 9
+collision_mask = 3
+script = ExtResource("1_xoqgn")
+collision_shape = NodePath("CollisionShape3D")
+mesh_inst = NodePath("NavigationRegion3D/MeshInstance3D")
+terrain_material = ExtResource("2_clksn")
+nav_mesh_region = NodePath("NavigationRegion3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dctvu")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_36306")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+lod_bias = 5.0
+mesh = SubResource("ArrayMesh_f85ce")

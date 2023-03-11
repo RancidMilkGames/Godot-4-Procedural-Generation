@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://nk1kro418ydd"]
+
+[ext_resource type="ArrayMesh" uid="uid://caus3py56xy0n" path="res://Assets/Meshes/Apple_4.res" id="1_bu3tl"]
+[ext_resource type="PackedScene" uid="uid://bvgqpc6e4bbmh" path="res://Scenes/snap_to_floor.tscn" id="2_wyr70"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = ExtResource("1_bu3tl")
+
+[node name="SnapToFloor" parent="." instance=ExtResource("2_wyr70")]

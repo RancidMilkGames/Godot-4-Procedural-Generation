@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ht0kw3suljna"]
+
+[ext_resource type="ArrayMesh" uid="uid://djcpyiixt35am" path="res://Assets/Meshes/Apple_3.res" id="1_7a3gk"]
+[ext_resource type="PackedScene" uid="uid://bvgqpc6e4bbmh" path="res://Scenes/snap_to_floor.tscn" id="2_h37wm"]
+[ext_resource type="Script" path="res://Scripts/snap_to_floor.gd" id="3_ilkma"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lttpe"]
+points = PackedVector3Array(0.00744456, 0.000532319, 0.0177221, 0.00710323, 0.00105572, 0.0192274, 0.00155395, -0.00252517, 0.0170236, 0.00741831, 0.000613356, 0.0169766, 0.00738063, 0.00260783, 0.0164313, 0.00709866, 0.00290052, 0.0176649, 0.00458259, 0.00425527, 0.020075, 0.00387481, 0.00467952, 0.0206816, 0.00336337, 0.00484446, 0.0208654, 0.00059387, 0.00307212, 0.0208042, 0.000515101, 0.00142182, 0.0199566, 0.0002708, -0.000769998, 0.0185677, -0.00069727, -0.00116851, 0.0159003, 0.000956897, -0.00231829, 0.0154183, -0.000446119, -0.000880591, -4.61936e-08, 0.000289066, -0.000884404, -4.61936e-08, 0.00088041, -0.000445849, -4.61936e-08, 0.00403691, 0.00721361, 0.0165988, 0.000883835, 0.000289207, -4.61936e-08, 0.000444322, 0.000880303, -4.61936e-08, 0.00386339, 0.00704677, 0.0174239, 0.00321725, 0.00639847, 0.0196379, 0.00297866, 0.0061258, 0.0199402, -0.00102262, 0.0051238, 0.0198626, -0.00218933, 0.00360888, 0.0191661, -0.00368139, 0.00266217, 0.0178671, -0.00139935, -0.000765232, 0.015359, -0.00102376, -0.00104171, 0.0150813, -0.000884491, -0.000290448, -4.61936e-08, -0.00421794, 0.00280518, 0.0154775, -0.00126692, 0.00552231, 0.0154509, -0.00113792, 0.00530017, 0.0183798, -0.000290863, 0.000883163, -4.61936e-08, -0.00330352, 0.00436586, 0.0153407, -0.00282405, 0.00410463, 0.0182205, -0.00419396, 0.00272223, 0.0166682, -0.000881066, 0.000444608, -4.61936e-08)
+
+[node name="Apple_3" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -44.8074, 89.3997, 0, -89.3997, -44.8074, 0, 0, 0)
+mesh = ExtResource("1_7a3gk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lttpe")
+
+[node name="SnapToFloor" type="RayCast3D" parent="." instance=ExtResource("2_h37wm")]
+target_position = Vector3(0, -200, 0)
+script = ExtResource("3_ilkma")
