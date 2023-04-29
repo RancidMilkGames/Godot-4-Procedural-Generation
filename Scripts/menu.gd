@@ -4,6 +4,7 @@ extends Control
 @export var infinite_iso_scene: PackedScene
 @export var square_tile_scene: PackedScene
 @export var terrain_3d: PackedScene
+@export var grid_3d_scene: PackedScene
 
 @export var focus_button: Button
 @export var quit_button: Button
@@ -42,3 +43,7 @@ func _on_about_pressed():
 
 func _on_3d_terrain_pressed():
 	Global.change_scene(terrain_3d)
+
+
+func _on_3d_grid_pressed():
+	Global.change_scene(grid_3d_scene)

@@ -108,7 +108,7 @@ Help={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 environment/glow/upscale_mode=0
 anti_aliasing/quality/msaa_3d=1
-textures/canvas_textures/default_texture_filter=0

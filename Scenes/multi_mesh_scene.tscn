@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://df1t72a6jthts"]
+
+[ext_resource type="Script" path="res://Scripts/multi_mesh_scene.gd" id="1_72v8q"]
+[ext_resource type="PackedScene" uid="uid://pn7tuwms6wxh" path="res://Common/FreeLookCam.tscn" id="2_d8afu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8pyxw"]
+noise_type = 3
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3mrp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rbn1g"]
+sky_material = SubResource("ProceduralSkyMaterial_v3mrp")
+
+[sub_resource type="Environment" id="Environment_6mf6d"]
+background_mode = 2
+sky = SubResource("Sky_rbn1g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olrxq"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_l4pka"]
+material = SubResource("StandardMaterial3D_olrxq")
+
+[sub_resource type="MultiMesh" id="MultiMesh_0jwoo"]
+transform_format = 1
+use_colors = true
+mesh = SubResource("BoxMesh_l4pka")
+
+[node name="MultiMeshScene" type="Node3D" node_paths=PackedStringArray("multi_mesh_inst")]
+script = ExtResource("1_72v8q")
+noise = SubResource("FastNoiseLite_8pyxw")
+multi_mesh_inst = NodePath("MultiMeshInstance3D")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6mf6d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="FreeLookCam" parent="." instance=ExtResource("2_d8afu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_0jwoo")
