@@ -12,8 +12,10 @@ enum MODES { NORMAL, TRANSPARENCY }
 @export var height: int = 75
 @export var separation: float = 3
 @export var min_noise_value: float = .15
+@export var min_cubes: int = 10000
 
-@export var cycle: bool = false
+@export var cycle: bool = true
+@export var cycle_speed: float = 10
 
 
 var seperated
@@ -24,10 +26,14 @@ var noise_offset: Vector3 = Vector3.ZERO
 func _ready():
 	setup()
 	Global.overlay.loading_screen.visible = false
+	var cam = get_node("FreeLookCam")
+	cam.look_at(Vector3(rows * seperated, columns * seperated, height * seperated))
+	cam.rot_x = -cam.global_rotation.y
+	cam.rot_y = -cam.global_rotation.x
 	if cycle:
 		var timer = Timer.new()
 		add_child(timer)
-		timer.wait_time = 5
+		timer.wait_time = cycle_speed
 		timer.start()
 		timer.timeout.connect(setup)
 		
@@ -37,9 +43,14 @@ func setup():
 	seperated = mesh_size * separation
 	if not noise:
 		noise = FastNoiseLite.new()
-	noise.seed = randi_range(0, 1000000)
+		noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	noise.seed = randi_range(0, 100000000)
 	set_mode(current_mode)
 	var dict_array = use_mode(current_mode)
+	
+	if dict_array.size() < min_cubes:
+		setup()
+		return
 	multi_mesh.instance_count = dict_array.size()
 	for i in dict_array.size():
 		multi_mesh.set_instance_color(i, dict_array[i].color)
@@ -59,7 +70,6 @@ func use_mode(mode):
 	match mode:
 		MODES.NORMAL:
 			var dict_array = []
-			var count = 0
 			for i in height:
 				for ii in rows:
 					for iii in columns:
@@ -79,7 +89,6 @@ func use_mode(mode):
 			return dict_array
 		MODES.TRANSPARENCY:
 			var dict_array = []
-			var count = 0
 			for i in height:
 				for ii in rows:
 					for iii in columns:

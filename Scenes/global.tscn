@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkx6nrh3q1dyf"]
+[gd_scene load_steps=16 format=3 uid="uid://dmicn85oijm8a"]
 
 [ext_resource type="Script" path="res://Scripts/Global.gd" id="1_n3abo"]
 [ext_resource type="PackedScene" uid="uid://cuq2fr8o2jm8w" path="res://Scenes/grass_proc.tscn" id="2_weenw"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://s353dtxt8d3b" path="res://Scenes/level_1_tiled.tscn" id="5_cyu5l"]
 [ext_resource type="PackedScene" uid="uid://cx0ftkncfgq1q" path="res://Scenes/surface_array_level.tscn" id="8_6ywdi"]
 [ext_resource type="PackedScene" uid="uid://cgy4x1go1dqdn" path="res://Scenes/About.tscn" id="8_glxd1"]
-[ext_resource type="PackedScene" uid="uid://df1t72a6jthts" path="res://Scenes/multi_mesh_scene.tscn" id="9_4t50l"]
+[ext_resource type="PackedScene" uid="uid://df1t72a6jthts" path="res://Scenes/3d_noise_visualization.tscn" id="9_jtaom"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q1yr"]
 content_margin_left = 10.0
@@ -93,7 +93,7 @@ simple_iso_scene = ExtResource("4_ou6wu")
 infinite_iso_scene = ExtResource("5_cyu5l")
 square_tile_scene = ExtResource("2_weenw")
 terrain_3d = ExtResource("8_6ywdi")
-grid_3d_scene = ExtResource("9_4t50l")
+grid_3d_scene = ExtResource("9_jtaom")
 focus_button = NodePath("VBoxContainer/3D Terrain")
 quit_button = NodePath("VBoxContainer/Quit")
 about = NodePath("AboutPopup")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://df1t72a6jthts"]
 
-[ext_resource type="Script" path="res://Scripts/multi_mesh_scene.gd" id="1_72v8q"]
-[ext_resource type="PackedScene" uid="uid://pn7tuwms6wxh" path="res://Common/FreeLookCam.tscn" id="2_d8afu"]
+[ext_resource type="Script" path="res://Scripts/multi_mesh_scene.gd" id="1_ve1aj"]
+[ext_resource type="PackedScene" uid="uid://pn7tuwms6wxh" path="res://Common/FreeLookCam.tscn" id="2_dow58"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8pyxw"]
 noise_type = 3
@@ -30,8 +30,8 @@ transform_format = 1
 use_colors = true
 mesh = SubResource("BoxMesh_l4pka")
 
-[node name="MultiMeshScene" type="Node3D" node_paths=PackedStringArray("multi_mesh_inst")]
-script = ExtResource("1_72v8q")
+[node name="3DNoiseVisualization" type="Node3D" node_paths=PackedStringArray("multi_mesh_inst")]
+script = ExtResource("1_ve1aj")
 noise = SubResource("FastNoiseLite_8pyxw")
 multi_mesh_inst = NodePath("MultiMeshInstance3D")
 
@@ -42,7 +42,7 @@ environment = SubResource("Environment_6mf6d")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="FreeLookCam" parent="." instance=ExtResource("2_d8afu")]
+[node name="FreeLookCam" parent="." instance=ExtResource("2_dow58")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]

@@ -4,7 +4,6 @@ extends Camera3D
 @export var lookaround_speed: float = .01
 
 @onready var compass = $Compass
-#@onready var compass_offset = compass.position
 
 var rot_x = 0
 var rot_y = 0
@@ -15,11 +14,11 @@ func _ready():
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	compass.global_rotation = Vector3.ZERO
 
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("MoveLeft", "MoveRight", "MoveForward", "MoveBack")
 
 	if input_dir.y != 0:
 		global_position += global_transform.basis.z * (speed * input_dir.y)
@@ -36,7 +35,6 @@ func _input(event):
 		if rot_y < -1.5:
 			rot_y = -1.5
 		
-		transform.basis = Basis()
 		transform.basis = Basis()
 		rotate_object_local(Vector3(0, -1, 0), rot_x)
 		rotate_object_local(Vector3(-1, 0, 0), rot_y)

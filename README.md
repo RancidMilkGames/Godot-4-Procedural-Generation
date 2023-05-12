@@ -1,10 +1,16 @@
 # Godot 4 Procedural Generation
-This project is an experiment in procedural generation in Godot 4. There are a few examples, both in 2D and 3D. Currently, on the endless 2D world performance is terrible. I think I've pinpointed it to the rendering of all the tiles. There's a system in place to disable anything running on tiles and their visibility when out of view, but that doesn't seem to be enough. Anyway, if you're fine with a small map, just comment out the endless gen code and it should run fine.
+This project is an experiment in procedural generation in Godot 4. 
+There are a few examples, both in 2D and 3D. 
+Currently, on the endless 2D world performance is terrible. 
+I think I've pinpointed it to the rendering of all the tiles. 
+There's a system in place to disable anything running on tiles and their visibility when out of view, but that doesn't seem to be enough. 
+Anyway, if you're fine with a small map, just comment out the endless gen code and it should run fine.
 
 ## Samples
 * 2D Endless World with isometric tiles
 * 2D square tiles
 * 3D terrain using the surface array tool
+* 3D noise visualizer
 
 ## Assets Used
 * Micro Fantasy by 0x72 https://0x72.itch.io/microfantasy CC0

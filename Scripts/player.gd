@@ -147,7 +147,7 @@ func Damage(amount):
 func Death():
 	queue_free()
 	
-func pickup(item):
+func pickup(_item):
 	pass
 
 
